@@ -12,8 +12,6 @@ return {
         "hrsh7th/nvim-cmp",
         -- lsp menu
         "j-hui/fidget.nvim",
-        -- lsp message inline
-        "folke/trouble.nvim",
     },
 
     config = function()
@@ -47,10 +45,6 @@ return {
             },
         })
 
-        require("trouble").setup({
-            icons = false,
-        })
-
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
         cmp.setup({
@@ -79,8 +73,6 @@ return {
             },
         })
 
-        vim.keymap.set("n", "<leader>tt", function() require("trouble").toggle() end)
-        vim.keymap.set("n", "[t", function() require("trouble").next({ skip_groups = true, jump = true }) end)
-        vim.keymap.set("n", "]t", function() require("trouble").previous({ skip_groups = true, jump = true }) end)
+        vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end)
     end,
 }
