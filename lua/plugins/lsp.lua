@@ -33,7 +33,11 @@ return {
                 -- rust
                 "rust_analyzer",
                 -- python
-                "pyright",
+                "pylsp",
+                "mypy",
+                "isort",
+                -- javascript, typescript
+                "denols",
             },
         })
         vim.lsp.config("lua_ls", {
@@ -44,6 +48,7 @@ return {
                 },
             },
         })
+        vim.lsp.config("pyright", { capabilities = capabilities })
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
