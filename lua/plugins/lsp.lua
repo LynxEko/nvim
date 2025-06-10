@@ -35,7 +35,6 @@ return {
                 -- python
                 "pylsp",
                 "mypy",
-                "isort",
                 -- javascript, typescript
                 "denols",
             },
