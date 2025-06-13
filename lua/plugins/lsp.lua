@@ -33,8 +33,6 @@ return {
                 -- rust
                 "rust_analyzer",
                 -- python
-                "pylsp",
-                "mypy",
                 -- javascript, typescript
                 "denols",
             },
