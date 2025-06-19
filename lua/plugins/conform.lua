@@ -7,7 +7,7 @@ return {
             formatters_by_ft = {
                 lua = { "stylua" },
                 rust = { "rustfmt", lsp_format = "fallback" },
-                python = { "ruff_format" },
+                python = { "black" },
                 javascript = { "deno_fmt" },
             },
             -- log_level = vim.log.levels.DEBUG,
