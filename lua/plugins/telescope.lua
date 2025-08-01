@@ -1,11 +1,48 @@
+-- Format path and add custom highlighting
+local path_display = function(opts, path)
+    local tail = require("telescope.utils").path_tail(path)
+    path = string.format("%s (%s)", tail, path)
+
+    local highlights = {
+        {
+            {
+                0, -- highlight start position
+                #path, -- highlight end position
+            },
+            "Comment", -- highlight group name
+        },
+    }
+
+    return path, highlights
+end
 return {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
     -- or
     -- branch = '0.1.x',
-    dependencies = { "nvim-lua/plenary.nvim" },
-
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope-ui-select.nvim",
+    },
     config = function()
+        local telescope = require("telescope")
+        local actions = require("telescope.actions")
+        telescope.setup({
+            extensions = { ["ui-select"] = { require("telescope.themes").get_dropdown({}) } },
+            defaults = {
+                layout_config = {
+                    horizontal = { width = 0.9 },
+                },
+                path_display = path_display,
+                mappings = {
+                    n = {
+                        ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
+                    },
+                },
+            },
+        })
+        telescope.load_extension("ui-select")
+
         local builtin = require("telescope.builtin")
         vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
         vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
