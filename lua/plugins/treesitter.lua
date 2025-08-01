@@ -10,6 +10,7 @@ return {
                     "c",
                     "lua",
                     "rust",
+                    "java",
                     "python",
                     "javascript",
                     "typescript",
