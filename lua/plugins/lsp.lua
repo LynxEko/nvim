@@ -34,7 +34,7 @@ return {
                 "rust_analyzer",
                 -- python
                 -- javascript, typescript
-                "denols",
+                "vtsls",
             },
         })
         vim.lsp.config("lua_ls", {
@@ -74,7 +74,5 @@ return {
                 prefix = "",
             },
         })
-
-        vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end)
     end,
 }
