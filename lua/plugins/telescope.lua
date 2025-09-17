@@ -30,6 +30,7 @@ return {
         telescope.setup({
             extensions = { ["ui-select"] = { require("telescope.themes").get_dropdown({}) } },
             defaults = {
+                file_ignore_patterns = { "cypress" },
                 layout_config = {
                     horizontal = { width = 0.9 },
                 },
