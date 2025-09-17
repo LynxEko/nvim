@@ -31,3 +31,6 @@ vim.keymap.set("n", "Q", "<nop>")
 
 -- replace word in entire buffer
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- reload nvim config
+vim.keymap.set("n", "<leader><CR>", "<cmd>lua ReloadConfig()<CR>")
