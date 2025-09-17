@@ -8,17 +8,17 @@ return {
                 lua = { "stylua" },
                 rust = { "rustfmt", lsp_format = "fallback" },
                 python = { "black" },
-                javascript = { "deno_fmt" },
+                javascript = { "prettierd" },
+                typescript = { "prettierd" },
+                css = { "prettierd" },
+                scss = { "prettierd" },
+                html = { "prettierd" },
             },
             -- log_level = vim.log.levels.DEBUG,
         })
 
         conform.formatters.stylua = {
             prepend_args = { "--indent-type=Spaces", "--collapse-simple-statement=FunctionOnly" },
-        }
-
-        conform.formatters.deno_fmt = {
-            append_args = { "--indent-width=4" },
         }
 
         vim.api.nvim_create_autocmd("BufWritePre", {
