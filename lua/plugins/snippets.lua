@@ -23,6 +23,9 @@ return {
                     ls.change_choice(1)
                 end
             end, { silent = true })
+
+            local vscode_loader = require("luasnip.loaders.from_vscode")
+            vscode_loader.lazy_load({ paths = { "./snippets/vscode/angular" } })
         end,
     },
 }
