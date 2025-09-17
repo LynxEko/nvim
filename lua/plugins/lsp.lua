@@ -10,6 +10,7 @@ return {
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
         "hrsh7th/nvim-cmp",
+        "onsails/lspkind.nvim",
         -- lsp menu
         "j-hui/fidget.nvim",
         -- snippets
@@ -49,8 +50,21 @@ return {
             },
         })
         vim.lsp.config("pyright", { capabilities = capabilities })
+        vim.lsp.config("vtsls", {
+            capabilities = capabilities,
+            settings = {
+                typescript = {},
+            },
+        })
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
+        local lspkind = require("lspkind")
+        lspkind.init({
+            symbol_map = {
+                Copilot = "",
+            },
+        })
 
         cmp.setup({
             snippet = {
@@ -66,9 +80,23 @@ return {
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
+                { name = "copilot", group_index = 2 },
             }, {
                 { name = "buffer" },
             }),
+            formatting = {
+                format = lspkind.cmp_format({
+                    format = lspkind.cmp_format({
+                        mode = "symbol_text",
+                        menu = {
+                            nvim_lsp = "[LSP]",
+                            luasnip = "[LuaSnip]",
+                            copilot = "[Copilot]",
+                            buffer = "[Buffer]",
+                        },
+                    }),
+                }),
+            },
         })
 
         vim.diagnostic.config({
