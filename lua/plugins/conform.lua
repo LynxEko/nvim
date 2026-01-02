@@ -21,6 +21,9 @@ return {
             conform.formatters.stylua = {
                 prepend_args = { "--indent-type=Spaces", "--collapse-simple-statement=FunctionOnly" },
             }
+            conform.formatters.black = {
+                prepend_args = { "--line-length=120" },
+            }
 
             vim.api.nvim_create_autocmd("BufWritePre", {
                 pattern = "*",

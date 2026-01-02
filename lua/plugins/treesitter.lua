@@ -15,6 +15,7 @@ return {
                     "javascript",
                     "typescript",
                     "jsdoc",
+                    "json",
                     "vim",
                     "vimdoc",
                     "bash",
