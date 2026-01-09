@@ -32,5 +32,8 @@ vim.keymap.set("n", "Q", "<nop>")
 -- replace word in entire buffer
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- tmux
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+
 -- reload nvim config
 vim.keymap.set("n", "<leader><CR>", "<cmd>lua ReloadConfig()<CR>")
