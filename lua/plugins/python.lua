@@ -60,7 +60,7 @@ return {
                     -- python-copy-reference
                     vim.keymap.set("n", "<leader>ry", vim.cmd.PythonCopyReferenceDotted, { buffer = args.buf })
                     vim.keymap.set("n", "<leader>ri", vim.cmd.PythonCopyReferenceImport, { buffer = args.buf })
-                    vim.keymap.set("n", "<leader>rf", vim.cmd.PythonCopyReferencePytest, { buffer = args.buf })
+                    vim.keymap.set("n", "<leader>rt", vim.cmd.PythonCopyReferencePytest, { buffer = args.buf })
                     -- custom keymaps
                     vim.keymap.set("n", "<leader>t", function() switch_source("tests", "test_") end)
                     vim.keymap.set("n", "<leader>d", function() switch_source("_dependency_injection") end)
