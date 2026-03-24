@@ -50,7 +50,9 @@ return {
                     },
                 },
             })
-            vim.lsp.config("pyright", { capabilities = capabilities })
+            vim.lsp.config("pyright", {
+                capabilities = capabilities,
+            })
             vim.lsp.config("vtsls", {
                 capabilities = capabilities,
                 settings = {

@@ -28,7 +28,8 @@ return {
                     path = "/tmp/" .. basename .. ".99.debug",
                     print_on_error = true,
                 },
-                model = "github-copilot/claude-sonnet-4.5",
+                provider = _99.Providers.ClaudeCodeProvider,
+                model = "claude-sonnet-4-5",
 
                 completion = {
                     custom_rules = {
@@ -43,11 +44,7 @@ return {
                 },
             })
 
-            vim.keymap.set("n", "<leader>9ff", function() _99.fill_in_function() end)
-            vim.keymap.set("n", "<leader>9fp", function() _99.fill_in_function_prompt() end)
-
-            vim.keymap.set("v", "<leader>9vv", function() _99.visual() end)
-            vim.keymap.set("v", "<leader>9vp", function() _99.visual_prompt() end)
+            vim.keymap.set("v", "<leader>9v", function() _99.visual() end)
 
             vim.keymap.set("n", "<leader>9s", function() _99.stop_all_requests() end)
 
